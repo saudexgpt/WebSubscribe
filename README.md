@@ -6,7 +6,7 @@ A simple laravel subscription platform(only RESTful APIs with MySQL) in which us
 
 ## How to install
 
-Just clone or download the project and the run 
+Just clone or download the project and then run 
 <code>composer install</code> 
 
 to install all dependencies
@@ -16,6 +16,10 @@ Setup your DB config in your .env file
 ## DB Migration
 
 <code>php artisan migrate</code>
+
+## DB Seeding
+
+<code>php artisan db:seed</code>
 
 ## Run the app
 <code>php artisan serve</code>

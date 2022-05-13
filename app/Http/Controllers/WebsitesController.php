@@ -41,7 +41,7 @@ class WebsitesController extends Controller
             $user->save();
         }
         // retrieve the user id
-        $user->websites()->sync($website_id);
+        $user->websites()->syncWithoutDetaching($website_id);
         return $this->show($user);
     }
 
