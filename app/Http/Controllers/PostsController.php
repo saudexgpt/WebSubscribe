@@ -65,12 +65,10 @@ class PostsController extends Controller
             // send email to all subscriber to the website with this post
             $subscribers =  $post->website->subscribers;
             $mail = new SubscriberMail($post->title, $post->description);
-            Mail::to($subscribers)->send($mail);
-            // Mail::send($subscribers, $mail);
-            // Mail::to($request->user())
-            // ->cc($moreUsers)
-            // ->bcc($evenMoreUsers)
-            // ->send(new SubscriberMail($post->title, $post->description));
+            foreach ($subscribers as $subscriber) {
+                Mail::to($subscriber)->send($mail);
+                // $post->subscribers()->sync($subscriber->id);
+            }
         }
         $post->save();
         return response()->json(['message' => 'Post is published and sent to subscribers'], 200);
